@@ -9,12 +9,7 @@
 - project must include:
     - documentation
     - unit tests
-    - examples
     - code quality & development tools/configs
-
-### v0.1.5 - Confidence
-----
-`[target]: show that the tool is useful, enrich the project with the gained experience`
 - use order as its own task runner / build system
 
 ### v0.2.0 - Lineage
