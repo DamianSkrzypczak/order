@@ -2,9 +2,10 @@ version: "0.1.0"
 
 orders:
   build:
-    description: "Build order binary into ./bin/ folder"
+    description: "Build order binary into ./bin/ directory"
     script:
       - go build -o ./bin/order ./cmd/order/main.go
+
   setup-dev:
     description: "Setup development tools"
     script:
@@ -14,16 +15,21 @@ orders:
       - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh
       # get goimports
       - go get golang.org/x/tools/cmd/goimports
+
   setup-doc:
-    description: ""
+    description: "Setup documentation tools"
     script:
-      - |
+      # Download hugo binary into ./bin/ directory
+      - |- # Multiline command
         curl -Ls https://github.com/gohugoio/hugo/releases/latest/ \
-        | grep "hugo_.*_Linux-64bit.tar.gz" \
-        | grep "\".*hugo/releases/download/.*/hugo_[^a-z]*_Linux-64bit.tar.gz\"" -o \
-        | xargs -I % curl -sSfL https://github.com% -o /tmp/hugo.tar.gz \
-        && tar -C ./bin/ -zxvf /tmp/hugo.tar.gz hugo > /dev/null || rm /tmp/hugo.tar.gz
+          | grep "hugo_.*_Linux-64bit.tar.gz" \
+          | grep "\".*hugo/releases/download/.*/hugo_[^a-z]*_Linux-64bit.tar.gz\"" -o \
+          | xargs -I % curl -sSfL https://github.com% -o /tmp/hugo.tar.gz \
+        && tar -C ./bin/ -zxvf /tmp/hugo.tar.gz hugo > /dev/null \
+        || rm /tmp/hugo.tar.gz
+      # Update hugo-theme-learn git submodule
       - git submodule update --init --recursive
+
   precommit:
     description: "Run all necessary precommit checks"
     script:

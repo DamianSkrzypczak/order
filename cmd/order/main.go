@@ -32,20 +32,17 @@ func main() {
 	orderCmd.SetInterspersed(false)
 
 	debugModeOn := orderCmd.BoolP("debug", "d", false, "debug mode")
-
 	listOrders := orderCmd.BoolP("list", "l", false, "list orders")
-
 	hideCommands := orderCmd.BoolP("no-commands", "n", false, "do not show currently executed command")
-
-	orderfilePath := orderCmd.StringP("path", "p", "orderfile.yaml", "path to orderfile")
+	orderfilePath := orderCmd.StringP("path", "p", "Orderfile.yml", "path to orderfile")
 
 	err := orderCmd.Parse(os.Args[1:])
-
-	setupLogger(*debugModeOn)
 
 	if err == pflag.ErrHelp {
 		return
 	}
+
+	setupLogger(*debugModeOn)
 
 	if err != nil {
 		log.Error().Err(err).Send()

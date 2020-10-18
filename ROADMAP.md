@@ -51,7 +51,7 @@
         - override: child only
     - optional `--keep-parent` flag which will allow for **"final file"** to keep parent reference
         - override mode for all tasks as a way to obey the principle o [open-closed](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle) principle
-    - **"final file"** is just normal orderfile.yaml, no special behaviour / syntax
+    - **"final file"** is just normal Orderfile.yml, no special behaviour / syntax
 
 ### v0.6.0 - Channel
 ----
