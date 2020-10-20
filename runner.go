@@ -22,6 +22,7 @@ type Runner struct {
 
 var defaultOptionsForInternalRunner = []interp.RunnerOption{
 	interp.Env(expand.ListEnviron(os.Environ()...)),
+	interp.StdIO(os.Stdin, os.Stdout, os.Stderr),
 }
 
 func NewRunner(opts RunnerOptions) (*Runner, error) {
@@ -39,6 +40,7 @@ func (r *Runner) RunOrder(order *Order) error {
 			return err
 		}
 	}
+
 	return nil
 }
 

@@ -84,6 +84,8 @@ func main() {
 		os.Exit(1)
 	}
 
-	runner.RunOrder(selectedOrder)
-
+	if err := runner.RunOrder(selectedOrder); err != nil {
+		log.Error().Msgf("Execution of order \"%s\" failed with: \n%s", orderName, err)
+		os.Exit(1)
+	}
 }

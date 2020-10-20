@@ -16,20 +16,6 @@ orders:
       # get goimports
       - go get golang.org/x/tools/cmd/goimports
 
-  setup-doc:
-    description: "Setup documentation tools"
-    script:
-      # Download hugo binary into ./bin/ directory
-      - |- # Multiline command
-        curl -Ls https://github.com/gohugoio/hugo/releases/latest/ \
-          | grep "hugo_.*_Linux-64bit.tar.gz" \
-          | grep "\".*hugo/releases/download/.*/hugo_[^a-z]*_Linux-64bit.tar.gz\"" -o \
-          | xargs -I % curl -sSfL https://github.com% -o /tmp/hugo.tar.gz \
-        && tar -C ./bin/ -zxvf /tmp/hugo.tar.gz hugo > /dev/null \
-        || rm /tmp/hugo.tar.gz
-      # Update hugo-theme-learn git submodule
-      - git submodule update --init --recursive
-
   precommit:
     description: "Run all necessary precommit checks"
     script:
@@ -56,3 +42,21 @@ orders:
       - go test -coverprofile=coverage.out ./...
       - go tool cover -html=coverage.out
       - rm coverage.out
+
+  setup-doc:
+    description: "Setup documentation tools"
+    script:
+      # Download hugo binary into ./bin/ directory
+      - |- # Multiline command
+        curl -Ls https://github.com/gohugoio/hugo/releases/latest/ \
+          | grep "hugo_.*_Linux-64bit.tar.gz" \
+          | grep "\".*hugo/releases/download/.*/hugo_[^a-z]*_Linux-64bit.tar.gz\"" -o \
+          | xargs -I % curl -sSfL https://github.com% -o /tmp/hugo.tar.gz \
+        && tar -C ./bin/ -zxvf /tmp/hugo.tar.gz hugo > /dev/null \
+        || rm /tmp/hugo.tar.gz
+      # Update hugo-theme-learn git submodule
+      - git submodule update --init --recursive
+
+  build-docs:
+    script:
+      - ./bin/hugo --source=docs/source --destination=..

@@ -14,8 +14,9 @@
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
-# scratchpad
+# Scratchpad
 scratchpad/
 
 # Binaries
 bin/**
+!bin/.keep

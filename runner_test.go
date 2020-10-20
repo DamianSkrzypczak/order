@@ -22,6 +22,7 @@ func TestNewRunner(t *testing.T) {
 
 func TestNewRunnerErrors(t *testing.T) {
 	tmp := defaultOptionsForInternalRunner
+
 	defer func() { defaultOptionsForInternalRunner = tmp }()
 
 	failingOption := func(r *interp.Runner) error { return errors.New("testError") }
@@ -32,7 +33,6 @@ func TestNewRunnerErrors(t *testing.T) {
 
 	_, err := NewRunner(RunnerOptions{})
 	assert.Error(t, err, "testError")
-
 }
 
 func TestRunOrder(t *testing.T) {
@@ -74,6 +74,7 @@ func mockLoggerStdio(mem storage.FS, filename string) (io.WriteCloser, error) {
 	if err != nil {
 		return nil, err
 	}
+
 	output := zerolog.ConsoleWriter{Out: stdout}
 	output.FormatLevel = func(i interface{}) string {
 		return ""
@@ -82,6 +83,7 @@ func mockLoggerStdio(mem storage.FS, filename string) (io.WriteCloser, error) {
 		return ""
 	}
 	log.Logger = log.Output(output)
+
 	return stdout, nil
 }
 
@@ -108,9 +110,11 @@ func TestRunOrderCommandLogging(t *testing.T) {
 	verifyLoggerWrittenData(t, mem, "testFile", "> (\n")
 }
 
-func verifyLoggerWrittenData(t *testing.T, mem storage.FS, filename string, expectedContent string) {
+func verifyLoggerWrittenData(t *testing.T, mem storage.FS, filename, expectedContent string) {
 	outFile, err := mem.Open(context.Background(), filename)
+
 	defer func() { outFile.Close() }()
+
 	require.NoError(t, err)
 
 	consoleOut, err := ioutil.ReadAll(outFile)

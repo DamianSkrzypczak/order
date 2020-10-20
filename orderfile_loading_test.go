@@ -18,7 +18,7 @@ func createTestFixture(t *testing.T, content string) (string, fileRemoverFunc) {
 	fixtureFile, err := ioutil.TempFile("", "test_fixture_*.yml")
 	require.NoError(t, err)
 
-	err = ioutil.WriteFile(fixtureFile.Name(), []byte(content), 0644)
+	err = ioutil.WriteFile(fixtureFile.Name(), []byte(content), 0600)
 	require.NoError(t, err)
 
 	return fixtureFile.Name(), func() { os.Remove(fixtureFile.Name()) }
@@ -47,6 +47,7 @@ func TestErrorWhenLoadingFromNonOrdrefileYAML(t *testing.T) {
   c: 3
 `
 	fixture, remover := createTestFixture(t, differentSyntaxedYaml)
+
 	defer remover()
 
 	_, err := NewOrderFileFrom(fixture)
