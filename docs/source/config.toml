@@ -8,7 +8,7 @@ pluralizelisttitles = "false"
 
 # For search functionality
 [outputs]
-home = [ "HTML", "RSS", "JSON"]
+home = ["HTML"]
 
 [params]
   author = "Damian Skrzypczak"

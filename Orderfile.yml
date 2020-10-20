@@ -43,4 +43,16 @@ orders:
       - go mod tidy -v
       - go mod verify
       # run unit tests
-      - go test ./...
+      - go test ./... --cover
+
+  test:
+    script:
+      - go test -coverprofile=coverage.out ./...
+      - go tool cover -func=coverage.out
+      - rm coverage.out
+
+  test-html:
+    script:
+      - go test -coverprofile=coverage.out ./...
+      - go tool cover -html=coverage.out
+      - rm coverage.out

@@ -33,10 +33,15 @@ func main() {
 
 	debugModeOn := orderCmd.BoolP("debug", "d", false, "debug mode")
 	listOrders := orderCmd.BoolP("list", "l", false, "list orders")
-	hideCommands := orderCmd.BoolP("no-commands", "n", false, "do not show currently executed command")
+	noCommands := orderCmd.BoolP("no-commands", "n", false, "do not show currently executed command")
 	orderfilePath := orderCmd.StringP("path", "p", "Orderfile.yml", "path to orderfile")
 
 	err := orderCmd.Parse(os.Args[1:])
+
+	if err != nil {
+		log.Error().Err(err).Send()
+		os.Exit(1)
+	}
 
 	if err == pflag.ErrHelp {
 		return
@@ -44,14 +49,9 @@ func main() {
 
 	setupLogger(*debugModeOn)
 
-	if err != nil {
-		log.Error().Err(err).Send()
-		return
-	}
-
 	orderfile, err := order.NewOrderFileFrom(*orderfilePath)
 	if err != nil {
-		log.Error().Msgf("Couldn't load orderfile from %s\n", *orderfilePath)
+		log.Error().Msgf("Couldn't load orderfile from %s\n due to error: %s", *orderfilePath, err)
 		os.Exit(1)
 	}
 
@@ -60,22 +60,30 @@ func main() {
 		return
 	}
 
-	if orderNameFromCLI := orderCmd.Arg(0); orderNameFromCLI != "" {
-		for orderNameFromFile, order := range orderfile.Orders {
-			if orderNameFromCLI == orderNameFromFile {
-				if err := order.Run(*hideCommands); err != nil {
-					log.Error().Msgf("Execution of order \"%s\" failed with: \n%s", orderNameFromFile, err)
-				}
+	orderName := orderCmd.Arg(0)
+	if orderName == "" {
+		log.Error().Msg("No order specified, exiting")
+		os.Exit(1)
+	}
 
-				return
-			}
-		}
-
-		log.Error().Msgf(`Couldn't find order "%s"`, orderNameFromCLI)
+	selectedOrder, ok := orderfile.GetOrder(orderName)
+	if !ok {
+		log.Error().Msgf(`Couldn't find order "%s"`, orderName)
 		log.Info().Msgf("available orders: \n- %s", strings.Join(orderfile.ListOrdersNames(), "\n- "))
 		os.Exit(1)
 	}
 
-	log.Error().Msg("No order specified, exiting")
-	os.Exit(1)
+	runner, err := order.NewRunner(
+		order.RunnerOptions{
+			NoCommand: *noCommands,
+		},
+	)
+
+	if err != nil {
+		log.Error().Msgf("Failed to create runner due to %s", err)
+		os.Exit(1)
+	}
+
+	runner.RunOrder(selectedOrder)
+
 }
