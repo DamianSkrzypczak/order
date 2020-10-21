@@ -2,52 +2,58 @@ version: "0.1.0"
 
 orders:
   build:
-    description: "Build order binary into ./bin/ directory"
+    description: "build order binary into ./bin/ directory"
     script:
-      - go build -o ./bin/order ./cmd/order/main.go
+      - "go build -o ./bin/order ."
 
   setup-dev:
-    description: "Setup development tools"
+    description: "setup development tools"
     script:
       # install dependencies
-      - go get -v -t -d ./...
+      - "go get -v -t -d ./..."
       # setup golangci-lint
-      - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh
+      - "curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh"
       # get goimports
-      - go get golang.org/x/tools/cmd/goimports
+      - "go get golang.org/x/tools/cmd/goimports"
 
   precommit:
-    description: "Run all necessary precommit checks"
+    description: |-
+      run all necessary precommit checks:
+        - goimports (fix-in-place)
+        - gofmt (fix-in-place)
+        - golangci-lint (with .golangci.yml config)
+        - go mod tidy & verify
+        - run unit tests
     script:
-      # run goimports in fix-in-place mode
-      - goimports -e -w .
-      # run gofmt in fix-in-place moe
-      - gofmt -w -e -l -s .
-      # run golangci-lint (with .golangci.yml config)
-      - ./bin/golangci-lint run
-      # run go mod tidy & verify
-      - go mod tidy -v
-      - go mod verify
-      # run unit tests
-      - go test ./... --cover
+      - "goimports -e -w ."
+      - "gofmt -w -e -l -s ."
+      - "./bin/golangci-lint run"
+      - "go test ./... --cover"
+      - "go mod tidy -v"
+      - "go mod verify"
 
   test:
+    description: "run go test with coverage report"
     script:
-      - go test -coverprofile=coverage.out ./...
-      - go tool cover -func=coverage.out
-      - rm coverage.out
+      - "go test -coverprofile=coverage.out ./..."
+      - "go tool cover -func=coverage.out"
+      - "rm coverage.out"
 
   test-html:
+    description: "run go test with HTML coverage report"
     script:
-      - go test -coverprofile=coverage.out ./...
-      - go tool cover -html=coverage.out
-      - rm coverage.out
+      - "go test -coverprofile=coverage.out ./..."
+      - "go tool cover -html=coverage.out"
+      - "rm coverage.out"
 
   setup-doc:
-    description: "Setup documentation tools"
+    description: |-
+      setup documentation tools:
+        - hugo (into ./bin/ directory)
+        - hugo-theme-learn (git submodule)
     script:
       # Download hugo binary into ./bin/ directory
-      - |- # Multiline command
+      - |-
         curl -Ls https://github.com/gohugoio/hugo/releases/latest/ \
           | grep "hugo_.*_Linux-64bit.tar.gz" \
           | grep "\".*hugo/releases/download/.*/hugo_[^a-z]*_Linux-64bit.tar.gz\"" -o \
@@ -55,8 +61,25 @@ orders:
         && tar -C ./bin/ -zxvf /tmp/hugo.tar.gz hugo > /dev/null \
         || rm /tmp/hugo.tar.gz
       # Update hugo-theme-learn git submodule
-      - git submodule update --init --recursive
+      - "git submodule update --init --recursive"
 
   build-docs:
+    description: "build project documentation"
     script:
-      - ./bin/hugo --source=docs/source --destination=..
+      - "./bin/hugo --source=docs/source --destination=.."
+
+  serve-docs:
+    description: "serve project documentation locally"
+    script:
+      - "xdg-open  http://localhost:1313/order >/dev/null"
+      - "./bin/hugo serve -s docs/source"
+
+  add-autocompletion:
+    script:
+      - "mkdir -p ~/.bash_completion.d"
+      - "cp scripts/autocompletion/order.bash ~/.bash_completion.d/order.bash"
+      - 'echo "source ~/.bash_completion.d/order.bash" >> ~/.bashrc'
+
+  rm-autocompletion:
+    script:
+      - "rm ~/.bash_completion.d/order.bash"

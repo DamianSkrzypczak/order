@@ -7,4 +7,4 @@ disableNextPrev = true
 
 # Order
 
-### ✔ A modern approach to running your tasks ✔
+### ✔ A modern approach to running your tasks

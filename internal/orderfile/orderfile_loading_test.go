@@ -1,4 +1,4 @@
-package order
+package orderfile
 
 import (
 	"io/ioutil"
@@ -21,7 +21,7 @@ func createTestFixture(t *testing.T, content string) (string, fileRemoverFunc) {
 	err = ioutil.WriteFile(fixtureFile.Name(), []byte(content), 0600)
 	require.NoError(t, err)
 
-	return fixtureFile.Name(), func() { os.Remove(fixtureFile.Name()) }
+	return fixtureFile.Name(), func() { require.NoError(t, os.Remove(fixtureFile.Name())) }
 }
 
 // @ Given - empty file
@@ -51,7 +51,7 @@ func TestErrorWhenLoadingFromNonOrdrefileYAML(t *testing.T) {
 	defer remover()
 
 	_, err := NewOrderFileFrom(fixture)
-	assert.EqualError(t, err, "yaml: unmarshal errors:\n  line 1: field x not found in type order.Orderfile")
+	assert.EqualError(t, err, "yaml: unmarshal errors:\n  line 1: field x not found in type orderfile.Orderfile")
 }
 
 // @ Given - YAML file with syntactically wrong content
@@ -62,7 +62,7 @@ func TestErrorForLoadingFromValidOrderfile(t *testing.T) {
 	defer remover()
 
 	_, err := NewOrderFileFrom(fixture)
-	assert.EqualError(t, err, "yaml: unmarshal errors:\n  line 1: cannot unmarshal !!str `Invalid...` into order.Orderfile")
+	assert.EqualError(t, err, "yaml: unmarshal errors:\n  line 1: cannot unmarshal !!str `Invalid...` into orderfile.Orderfile")
 }
 
 // @ Given - non-existing path
@@ -70,5 +70,11 @@ func TestErrorForLoadingFromValidOrderfile(t *testing.T) {
 // @ Then  - returned error informs about "no such file or directory"
 func TestErrorForNonExistingPath(t *testing.T) {
 	_, err := NewOrderFileFrom("non-existing-path")
-	assert.EqualError(t, err, "open non-existing-path: no such file or directory")
+
+	possibleNonExistingPathsErrors := []string{
+		"open non-existing-path: no such file or directory",                  // linux
+		"open non-existing-path: The system cannot find the file specified.", // windows
+	}
+
+	assert.Contains(t, possibleNonExistingPathsErrors, err.Error())
 }

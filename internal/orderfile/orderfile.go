@@ -1,7 +1,9 @@
-package order
+package orderfile
 
 import (
 	"io/ioutil"
+	"path/filepath"
+	"sort"
 
 	"gopkg.in/yaml.v2"
 )
@@ -12,8 +14,9 @@ type Orderfile struct {
 	Orders  Orders `yaml:"orders"`
 }
 
+// NewOrderFileFrom parses orderfile under given path and returns it's object representation
 func NewOrderFileFrom(path string) (*Orderfile, error) {
-	yamlFile, err := ioutil.ReadFile(path)
+	yamlFile, err := ioutil.ReadFile(filepath.Clean(path))
 	if err != nil {
 		return nil, err
 	}
@@ -27,16 +30,21 @@ func NewOrderFileFrom(path string) (*Orderfile, error) {
 	return o, nil
 }
 
+// GetOrder returns order under given name
+// Or false status for when there is no order with given name
 func (o *Orderfile) GetOrder(orderName string) (*Order, bool) {
 	order, ok := o.Orders[orderName]
 	return &order, ok
 }
 
+// ListOrdersNames returns string slice with all defined orders
 func (o *Orderfile) ListOrdersNames() []string {
 	names := make([]string, 0, len(o.Orders))
 	for name := range o.Orders {
 		names = append(names, name)
 	}
+
+	sort.Strings(names)
 
 	return names
 }

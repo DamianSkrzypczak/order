@@ -1,4 +1,4 @@
-package order
+package runner
 
 import (
 	"context"
@@ -8,6 +8,7 @@ import (
 	"testing"
 
 	"code.sajari.com/storage"
+	"github.com/DamianSkrzypczak/order/internal/orderfile"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
@@ -16,7 +17,7 @@ import (
 )
 
 func TestNewRunner(t *testing.T) {
-	_, err := NewRunner(RunnerOptions{})
+	_, err := NewRunner(Options{})
 	assert.NoError(t, err)
 }
 
@@ -31,37 +32,37 @@ func TestNewRunnerErrors(t *testing.T) {
 		interp.RunnerOption(failingOption),
 	}
 
-	_, err := NewRunner(RunnerOptions{})
+	_, err := NewRunner(Options{})
 	assert.Error(t, err, "testError")
 }
 
 func TestRunOrder(t *testing.T) {
-	runner, err := NewRunner(RunnerOptions{})
+	runner, err := NewRunner(Options{})
 	require.NoError(t, err)
 
 	err = runner.RunOrder(
-		&Order{},
+		&orderfile.Order{},
 	)
 	assert.NoError(t, err)
 }
 
 func TestRunEmptyOrder(t *testing.T) {
-	runner, err := NewRunner(RunnerOptions{})
+	runner, err := NewRunner(Options{})
 	require.NoError(t, err)
 
 	err = runner.RunOrder(
-		&Order{},
+		&orderfile.Order{},
 	)
 	assert.NoError(t, err)
 }
 
 func TestRunOrderWithSyntacticallyWrongCmd(t *testing.T) {
-	runner, err := NewRunner(RunnerOptions{NoCommand: true})
+	runner, err := NewRunner(Options{NoCommand: true})
 	require.NoError(t, err)
 
 	err = runner.RunOrder(
-		&Order{
-			Script: []Cmd{
+		&orderfile.Order{
+			Script: []orderfile.Cmd{
 				"wr@ng?syn!ax",
 			},
 		},
@@ -93,19 +94,19 @@ func TestRunOrderCommandLogging(t *testing.T) {
 	stdout, err := mockLoggerStdio(mem, "testFile")
 	require.NoError(t, err)
 
-	runner, err := NewRunner(RunnerOptions{NoCommand: false})
+	runner, err := NewRunner(Options{NoCommand: false})
 	require.NoError(t, err)
 
 	err = runner.RunOrder(
-		&Order{
-			Script: []Cmd{
+		&orderfile.Order{
+			Script: []orderfile.Cmd{
 				"(", // syntactically incorrect command
 			},
 		},
 	)
 	assert.Error(t, err, "1:1: reached EOF without matching ( with )")
 
-	stdout.Close()
+	require.NoError(t, stdout.Close())
 
 	verifyLoggerWrittenData(t, mem, "testFile", "> (\n")
 }
@@ -113,7 +114,7 @@ func TestRunOrderCommandLogging(t *testing.T) {
 func verifyLoggerWrittenData(t *testing.T, mem storage.FS, filename, expectedContent string) {
 	outFile, err := mem.Open(context.Background(), filename)
 
-	defer func() { outFile.Close() }()
+	defer func() { require.NoError(t, outFile.Close()) }()
 
 	require.NoError(t, err)
 

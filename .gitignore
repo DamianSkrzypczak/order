@@ -20,3 +20,6 @@ scratchpad/
 # Binaries
 bin/**
 !bin/.keep
+
+# TODO
+TODO.md
