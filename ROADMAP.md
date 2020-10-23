@@ -21,10 +21,10 @@
         - secrets
         - bool
         - string
+    - default values
     - "passthrough" option:
         - will pass all flags/positional agrs to marked place in order cmd string
         - passtrhough allows for special "help-cmd" which will be helpful to see command's original help
-- default values
 - environmental variables injection
 
 ### v0.3.0 - Lineage

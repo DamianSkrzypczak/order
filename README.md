@@ -13,7 +13,10 @@
 # Order
 ✔ A modern approach to running your tasks
 
+> :warning: **Please be warned that the project is early in its development, which means the API and code base are generally unstable for the short term.**
+
 ## Introduction
+
 Order is a versatile task runner / build system created to assist with the project development and maintance processes.
 
 It's main goal is to give to the developer:
@@ -55,8 +58,9 @@ and our [CODE_OF_CONDUCT](CODDE_OF_CONDUCT.md) for more details on contribution 
 
 ### Conventions
 This project utilizes:
-- [Keep a changelog](https://keepachangelog.com/en/1.0.0/) for CHANGELOG
+- [Semantic Versioning](https://semver.org/spec/v2.0.0.html) for versioning
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit messages
+- [Keep a changelog](https://keepachangelog.com/en/1.0.0/) for CHANGELOG
 - [Contributor Covenant](https://www.contributor-covenant.org) for code of conduct
 
 ## Credit & License
