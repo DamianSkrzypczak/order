@@ -54,7 +54,7 @@ func main() {
 	// output adjustements
 	noCommand := orderCmd.Bool("no-command", false, "hide currently executed command")
 	noLogLevel := orderCmd.Bool("no-level", false, "hide logging level")
-	noColor := orderCmd.Bool("no-color", false, "remove coloring from output")
+	noColor := orderCmd.Bool("no-color", false, "do not color the output")
 
 	// core flags
 	debugModeOn := orderCmd.Bool("debug", false, "debug mode")
