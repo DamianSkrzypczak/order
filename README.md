@@ -1,4 +1,4 @@
-![status](https://img.shields.io/badge/status-alpha-yellow.svg)
+![status](https://img.shields.io/badge/status-beta-yellow.svg)
 [![go report](https://goreportcard.com/badge/github.com/DamianSkrzypczak/order)](https://goreportcard.com/report/github.com/DamianSkrzypczak/order)
 [![actions status](https://github.com/DamianSkrzypczak/order/workflows/Testing/badge.svg)](https://github.com/DamianSkrzypczak/order/actions)
 [![documentation](https://img.shields.io/badge/documentation-reference-%234DB6AC)](https://damianskrzypczak.github.io/order)
