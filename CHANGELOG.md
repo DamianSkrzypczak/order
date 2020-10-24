@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - [Github actions configuration](https://github.com/DamianSkrzypczak/shift/actions)
     - More golangci-lint restrictions (full code documentation requirement)
     - Tests (with 100% coverage)
+    - Dependabot support
 - Other:
     - [Orderfile.yml](Orderfile.yml) (order now uses itself to run project tasks)
 
