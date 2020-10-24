@@ -5,3 +5,6 @@ chapter = true
 +++
 
 # Tutorials
+
+Available tutorials:
+{{% children %}}
