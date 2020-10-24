@@ -56,7 +56,7 @@ orders:
       - |-
         curl -Ls https://github.com/gohugoio/hugo/releases/latest/ \
           | grep "hugo_.*_Linux-64bit.tar.gz" \
-          | grep "\".*hugo/releases/download/.*/hugo_[^a-z]*_Linux-64bit.tar.gz\"" -o \
+          | grep "\".*hugo/releases/download/.*/hugo_extended_[^a-z]*_Linux-64bit.tar.gz\"" -o \
           | xargs -I % curl -sSfL https://github.com% -o /tmp/hugo.tar.gz \
         && tar -C ./bin/ -zxvf /tmp/hugo.tar.gz hugo > /dev/null \
         || rm /tmp/hugo.tar.gz

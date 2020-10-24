@@ -113,8 +113,6 @@ func main() {
 	if *addBashCompletion {
 		orderName = `builtin order "AddBashCompletion"`
 		selectedOrder = completion.BashCompletionOrder
-		t := true
-		noCommand = &t
 	} else {
 		orderName = orderCmd.Arg(0)
 		if orderName == "" {
