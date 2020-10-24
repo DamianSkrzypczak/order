@@ -20,9 +20,10 @@
 Order is a versatile task runner / build system created to assist with the project development and maintance processes.
 
 It's main goal is to give to the developer:
-- command definition file with clear and intuitive structure
-- task-based subcommands supporting user-defined flagset
-- task inheritance which provides:
+- script definition file with clear and intuitive structure
+- task-based subcommands
+    - **[not yet implemented]** with support for user-defined flagset
+- **[not yet implemented]** task inheritance which provides:
     - centralization of common task code (multirepo project support)
     - ability to divide tasks into file-based, aliased namespaces
     - support for parent task checksum validation
