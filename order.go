@@ -10,9 +10,9 @@ import (
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/pflag"
 
-	"github.com/DamianSkrzypczak/order/completion"
 	"github.com/DamianSkrzypczak/order/internal/orderfile"
 	"github.com/DamianSkrzypczak/order/internal/runner"
+	"github.com/DamianSkrzypczak/order/preorders/completion"
 )
 
 func printOrders(o *orderfile.Orderfile) {
