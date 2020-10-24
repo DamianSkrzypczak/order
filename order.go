@@ -51,7 +51,7 @@ func main() {
 	orderCmd := pflag.NewFlagSet("order", pflag.ContinueOnError)
 	orderCmd.SetInterspersed(false)
 
-	// output ajustements
+	// output adjustements
 	noCommand := orderCmd.Bool("no-command", false, "hide currently executed command")
 	noLogLevel := orderCmd.Bool("no-level", false, "hide logging level")
 	noColor := orderCmd.Bool("no-color", false, "remove coloring from output")
@@ -62,9 +62,9 @@ func main() {
 	orderfilePath := orderCmd.StringP("path", "p", "./Orderfile.yml", "path to orderfile")
 	printVersion := orderCmd.Bool("version", false, "print version of orderfile (and if loaded, Orderfile.yml)")
 
-	// (hidem) completion adding flags
+	// (hiden) completion adding flags
 	addBashCompletion := orderCmd.Bool("add-bash-completion", false, "add bash completion")
-	_ = orderCmd.MarkHidden("addBashCompletion")
+	_ = orderCmd.MarkHidden("add-bash-completion")
 
 	orderCmd.Usage = func() {
 		log.Logger = newHelpLogger()
