@@ -18,8 +18,8 @@ func createTestFixture(t *testing.T, content string) (string, fileRemoverFunc) {
 	fixtureFile, err := ioutil.TempFile("", "test_fixture_*.yml")
 	require.NoError(t, err)
 
-	err = ioutil.WriteFile(fixtureFile.Name(), []byte(content), 0600)
-	require.NoError(t, err)
+	require.NoError(t, ioutil.WriteFile(fixtureFile.Name(), []byte(content), 0600))
+	require.NoError(t, fixtureFile.Close())
 
 	return fixtureFile.Name(), func() { require.NoError(t, os.Remove(fixtureFile.Name())) }
 }
