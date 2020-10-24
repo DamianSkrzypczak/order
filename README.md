@@ -8,7 +8,7 @@
 
 
 <!-- <img align="right" height="100px" src="https://raw.githubusercontent.com/DamianSkrzypczak/order/master/media/logo.png"> -->
-<!-- <img alt="logo" align="right" width="350px" src="./media/logo.png"> -->
+<img alt="logo" align="right" width="150px" src="/media/logo.png" style="background-color: white; border-radius: 25px;">
 
 # Order
 ✔ A modern approach to running your tasks
