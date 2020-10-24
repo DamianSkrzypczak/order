@@ -1,6 +1,6 @@
 ![status](https://img.shields.io/badge/status-alpha-red.svg)
 [![documentation](https://img.shields.io/badge/documentation-reference-%234DB6AC)](https://damianskrzypczak.github.io/order)
-[![actions status](https://github.com/DamianSkrzypczak/order/workflows/Pipeline/badge.svg)](https://github.com/DamianSkrzypczak/order/actions)
+[![actions status](https://github.com/DamianSkrzypczak/order/workflows/Testing/badge.svg)](https://github.com/DamianSkrzypczak/order/actions)
 [![go report](https://goreportcard.com/badge/github.com/DamianSkrzypczak/order)](https://goreportcard.com/report/github.com/DamianSkrzypczak/order)
 [![godoc](https://godoc.org/github.com/DamianSkrzypczak/order?status.svg)](http://godoc.org/github.com/DamianSkrzypczak/order)
 [![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c)](https://pkg.go.dev/github.com/DamianSkrzypczak/order)
