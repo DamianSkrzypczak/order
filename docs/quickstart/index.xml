@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quickstart on Order</title>
+    <link>https://DamianSkrzypczak.github.io/order/quickstart/</link>
+    <description>Recent content in Quickstart on Order</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://DamianSkrzypczak.github.io/order/quickstart/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction</title>
+      <link>https://DamianSkrzypczak.github.io/order/quickstart/01_introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://DamianSkrzypczak.github.io/order/quickstart/01_introduction/</guid>
+      <description>What is order? Order is a versatile task runner / build system created to assist with the project development and maintance processes.
+It&amp;rsquo;s main goal is to give to the developer:
+ script definition file with clear and intuitive structure task-based subcommands  [not yet implemented] with support for user-defined flagset   [not yet implemented] task inheritance which provides:  centralization of common task code (multirepo project support) ability to divide tasks into file-based, aliased namespaces support for parent task checksum validation optional separation between definition and implementation compliation of whole inheritance tree to single file    Does the logo gopher have a name?</description>
+    </item>
+    
+    <item>
+      <title>Installation</title>
+      <link>https://DamianSkrzypczak.github.io/order/quickstart/02_installation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://DamianSkrzypczak.github.io/order/quickstart/02_installation/</guid>
+      <description>Currently Order supports only installation via go get but binary releases and support for various package managers is comming soon.
+ Using go get (installed go required) To install &amp;ldquo;order&amp;rdquo; tool run:
+go get -u github.com/DamianSkrzypczak/order then check if everything works file with
+order --help you should see usage similar to that:
+Usage: order [options...] &amp;lt;order-name&amp;gt; Options: --debug debug mode -l, --list list orders --no-color do not color the output --no-command hide currently executed command --no-level hide logging level -p, --path string path to orderfile (default &amp;quot;.</description>
+    </item>
+    
+    <item>
+      <title>Creating new Orderfile.yml</title>
+      <link>https://DamianSkrzypczak.github.io/order/quickstart/03_creating_orderfile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://DamianSkrzypczak.github.io/order/quickstart/03_creating_orderfile/</guid>
+      <description>Currently order doesn&amp;rsquo;t support basic orderfile initialization so new Orferfile.yml must be created by hand.
+However, this feature is planned in our ROADMAP will be added very soon.
+ Creating new Orderfile.yml: Create new file named Orderfile.yml containing structure like below
+version: &amp;#34;0.1.0&amp;#34; orders: hello-world: description: &amp;#34;Say Hello World!&amp;#34; script: - echo &amp;#34;Hello World!&amp;#34; This Orderfile contains single order named &amp;ldquo;hello-world&amp;rdquo;, which can be invoked by running order hello-world.</description>
+    </item>
+    
+    <item>
+      <title>Usage</title>
+      <link>https://DamianSkrzypczak.github.io/order/quickstart/04_usage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://DamianSkrzypczak.github.io/order/quickstart/04_usage/</guid>
+      <description>Currently Order doesn&amp;rsquo;t support flags/parameters for subcommand.
+However, this feature is planned in our ROADMAP will be added very soon.
+ Checking version Running order --version will display:
+ current version of Order tool Orderfile.yml version (if present in current directory or pointet with --path flag)  # With Orderfile.yml present: &amp;gt; order --version INF Order version: 0.1.0 INF ../Orderfile.yml version: 0.1.0 # Without Orderfile.yml present or pointed with --path: &amp;gt; order --version INF Order version: 0.</description>
+    </item>
+    
+  </channel>
+</rss>

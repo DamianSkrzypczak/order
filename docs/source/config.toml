@@ -1,0 +1,16 @@
+baseURL = "https://DamianSkrzypczak.github.io/order/"
+languageCode = "en-us"
+title = "Order"
+canonifyurls = true
+
+theme = "hugo-theme-learn"
+
+pluralizelisttitles = false
+
+[outputs]
+  home = ["HTML"]
+
+[params]
+  editURL = "https://github.com/DamianSkrzypczak/order/tree/master/docs/source/content/"
+  author = "Damian Skrzypczak"
+  themeVariant = "mine"

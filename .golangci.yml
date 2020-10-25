@@ -99,11 +99,14 @@ linters:
 
 issues:
   # TODO: uncomment when starting writing documentation
-  # exclude-use-default: false
+  exclude-use-default: false
   exclude-rules:
     - path: _test\.go
       linters:
         - gomnd
+  exclude:
+    - "should have a package comment, unless it's in another file for this package"
+
 
 # run:
 #   skip-dirs:

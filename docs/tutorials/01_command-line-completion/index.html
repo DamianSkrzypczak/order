@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.76.5" />
+    <meta name="description" content="">
+<meta name="author" content="Damian Skrzypczak">
+
+    <link rel="shortcut icon" href="https://DamianSkrzypczak.github.io/order/images/Ordy.png" type="image/x-icon" />
+    <title>Adding command line completion :: Order</title>
+
+    
+    <link href="https://DamianSkrzypczak.github.io/order/css/nucleus.css?1603586509" rel="stylesheet">
+    <link href="https://DamianSkrzypczak.github.io/order/css/fontawesome-all.min.css?1603586509" rel="stylesheet">
+    <link href="https://DamianSkrzypczak.github.io/order/css/hybrid.css?1603586509" rel="stylesheet">
+    <link href="https://DamianSkrzypczak.github.io/order/css/featherlight.min.css?1603586509" rel="stylesheet">
+    <link href="https://DamianSkrzypczak.github.io/order/css/perfect-scrollbar.min.css?1603586509" rel="stylesheet">
+    <link href="https://DamianSkrzypczak.github.io/order/css/auto-complete.css?1603586509" rel="stylesheet">
+    <link href="https://DamianSkrzypczak.github.io/order/css/atom-one-dark-reasonable.css?1603586509" rel="stylesheet">
+    <link href="https://DamianSkrzypczak.github.io/order/css/theme.css?1603586509" rel="stylesheet">
+    <link href="https://DamianSkrzypczak.github.io/order/css/hugo-theme.css?1603586509" rel="stylesheet">
+    
+    <link href="https://DamianSkrzypczak.github.io/order/css/theme-mine.css?1603586509" rel="stylesheet">
+    
+    
+
+    <script src="https://DamianSkrzypczak.github.io/order/js/jquery-3.3.1.min.js?1603586509"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="https://DamianSkrzypczak.github.io/order/tutorials/01_command-line-completion/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="https://DamianSkrzypczak.github.io/order/">
+    <img id="logo-img" height=120px src="https://DamianSkrzypczak.github.io/order/images/Ordy.png">
+  </a>
+  <br />
+  <h1 style="color:white">Order</h1>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="https://DamianSkrzypczak.github.io/order/js/lunr.min.js?1603586509"></script>
+<script type="text/javascript" src="https://DamianSkrzypczak.github.io/order/js/auto-complete.js?1603586509"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/DamianSkrzypczak.github.io\/order\/";
+    
+</script>
+<script type="text/javascript" src="https://DamianSkrzypczak.github.io/order/js/search.js?1603586509"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/quickstart/" title="Quickstart" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://DamianSkrzypczak.github.io/order/quickstart/">
+          Quickstart
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/quickstart/01_introduction/" title="Introduction" class="dd-item ">
+        <a href="https://DamianSkrzypczak.github.io/order/quickstart/01_introduction/">
+        Introduction
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/quickstart/02_installation/" title="Installation" class="dd-item ">
+        <a href="https://DamianSkrzypczak.github.io/order/quickstart/02_installation/">
+        Installation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/quickstart/03_creating_orderfile/" title="Creating new Orderfile.yml" class="dd-item ">
+        <a href="https://DamianSkrzypczak.github.io/order/quickstart/03_creating_orderfile/">
+        Creating new Orderfile.yml
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/quickstart/04_usage/" title="Usage" class="dd-item ">
+        <a href="https://DamianSkrzypczak.github.io/order/quickstart/04_usage/">
+        Usage
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/tutorials/" title="Tutorials" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="https://DamianSkrzypczak.github.io/order/tutorials/">
+          Tutorials
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/tutorials/01_command-line-completion/" title="Adding command line completion" class="dd-item active">
+        <a href="https://DamianSkrzypczak.github.io/order/tutorials/01_command-line-completion/">
+        Adding command line completion
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/roadmap/" title="Roadmap" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://DamianSkrzypczak.github.io/order/roadmap/">
+          Roadmap
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <center>
+    
+    <a class="github-button" href="https://github.com/DamianSkrzypczak/order" data-icon="octicon-star" data-show-count="true">Star</a>
+
+    
+    <a class="github-button" href="https://github.com/DamianSkrzypczak/order/fork" data-icon="octicon-repo-forked" data-show-count="true">Fork</a>
+
+    
+    <a class="github-button" href="https://github.com/DamianSkrzypczak/order/subscription" data-icon="octicon-eye" data-show-count="true" aria-label="Watch DamianSkrzypczak/order on GitHub">Watch</a>
+
+    
+    <a class="github-button" href="https://github.com/DamianSkrzypczak/order/issues" data-icon="octicon-issue-opened" data-show-count="true" aria-label="Issue DamianSkrzypczak/order on GitHub">Issue</a>
+
+    
+    <a class="github-button" href="https://github.com/DamianSkrzypczak" aria-label="Follow @DamianSkrzypczak on GitHub">Follow @DamianSkrzypczak</a>
+
+</center>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/DamianSkrzypczak/order/tree/master/docs/source/content/tutorials/01_command-line-completion.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='https://DamianSkrzypczak.github.io/order/'>Home</a> > <a href='https://DamianSkrzypczak.github.io/order/tutorials/'>Tutorials</a> > Adding command line completion
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#supported-shells">Supported shells</a></li>
+        <li><a href="#adding-completion">Adding completion</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Adding command line completion
+            </h1>
+          
+
+        
+
+
+<h3 id="supported-shells">Supported shells</h3>
+<p>Order offers supports command line autocompletion for selected shells:</p>
+<ul>
+<li>bash</li>
+</ul>
+<h3 id="adding-completion">Adding completion</h3>
+<p>Order completion is done by using <strong>hidden flags</strong>.</p>
+<p>Each flag execute special order which defines all the necessary steps to ensure completion for chosen shell.</p>
+
+<div class="notices note" ><p>For transparency, pre-defined orders behaves in same fashion that user-defined orders would do, this means that for default CLI parameters, all commands will be printed to stdout during task execution.</p>
+</div>
+
+<h4 id="bash">BASH</h4>
+<p>To add bash completion for order commands run:</p>
+<pre><code>order --add-bash-completion
+</code></pre><p>When <code>--no-comamand</code> flag present, output should include all executed commands.</p>
+
+<div class="notices info" ><p>Remember to run <code>source ~/.bashrc</code> or create new terminal session
+to load autocompletion after sucessful registration</p>
+</div>
+
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="https://DamianSkrzypczak.github.io/order/tutorials/" title="Tutorials"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="https://DamianSkrzypczak.github.io/order/roadmap/" title="Roadmap" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="https://DamianSkrzypczak.github.io/order/js/clipboard.min.js?1603586509"></script>
+    <script src="https://DamianSkrzypczak.github.io/order/js/perfect-scrollbar.min.js?1603586509"></script>
+    <script src="https://DamianSkrzypczak.github.io/order/js/perfect-scrollbar.jquery.min.js?1603586509"></script>
+    <script src="https://DamianSkrzypczak.github.io/order/js/jquery.sticky.js?1603586509"></script>
+    <script src="https://DamianSkrzypczak.github.io/order/js/featherlight.min.js?1603586509"></script>
+    <script src="https://DamianSkrzypczak.github.io/order/js/highlight.pack.js?1603586509"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://DamianSkrzypczak.github.io/order/js/modernizr.custom-3.6.0.js?1603586509"></script>
+    <script src="https://DamianSkrzypczak.github.io/order/js/learn.js?1603586509"></script>
+    <script src="https://DamianSkrzypczak.github.io/order/js/hugo-learn.js?1603586509"></script>
+
+    <link href="https://DamianSkrzypczak.github.io/order/mermaid/mermaid.css?1603586509" rel="stylesheet" />
+    <script src="https://DamianSkrzypczak.github.io/order/mermaid/mermaid.js?1603586509"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+

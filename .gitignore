@@ -13,3 +13,13 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# Scratchpad
+scratchpad/
+
+# Binaries
+bin/**
+!bin/.keep
+
+# TODO
+TODO.md

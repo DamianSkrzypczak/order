@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.76.5" />
+    <meta name="description" content="">
+<meta name="author" content="Damian Skrzypczak">
+
+    <link rel="shortcut icon" href="https://DamianSkrzypczak.github.io/order/images/Ordy.png" type="image/x-icon" />
+    <title>Usage :: Order</title>
+
+    
+    <link href="https://DamianSkrzypczak.github.io/order/css/nucleus.css?1603586509" rel="stylesheet">
+    <link href="https://DamianSkrzypczak.github.io/order/css/fontawesome-all.min.css?1603586509" rel="stylesheet">
+    <link href="https://DamianSkrzypczak.github.io/order/css/hybrid.css?1603586509" rel="stylesheet">
+    <link href="https://DamianSkrzypczak.github.io/order/css/featherlight.min.css?1603586509" rel="stylesheet">
+    <link href="https://DamianSkrzypczak.github.io/order/css/perfect-scrollbar.min.css?1603586509" rel="stylesheet">
+    <link href="https://DamianSkrzypczak.github.io/order/css/auto-complete.css?1603586509" rel="stylesheet">
+    <link href="https://DamianSkrzypczak.github.io/order/css/atom-one-dark-reasonable.css?1603586509" rel="stylesheet">
+    <link href="https://DamianSkrzypczak.github.io/order/css/theme.css?1603586509" rel="stylesheet">
+    <link href="https://DamianSkrzypczak.github.io/order/css/hugo-theme.css?1603586509" rel="stylesheet">
+    
+    <link href="https://DamianSkrzypczak.github.io/order/css/theme-mine.css?1603586509" rel="stylesheet">
+    
+    
+
+    <script src="https://DamianSkrzypczak.github.io/order/js/jquery-3.3.1.min.js?1603586509"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="https://DamianSkrzypczak.github.io/order/quickstart/04_usage/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="https://DamianSkrzypczak.github.io/order/">
+    <img id="logo-img" height=120px src="https://DamianSkrzypczak.github.io/order/images/Ordy.png">
+  </a>
+  <br />
+  <h1 style="color:white">Order</h1>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="https://DamianSkrzypczak.github.io/order/js/lunr.min.js?1603586509"></script>
+<script type="text/javascript" src="https://DamianSkrzypczak.github.io/order/js/auto-complete.js?1603586509"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/DamianSkrzypczak.github.io\/order\/";
+    
+</script>
+<script type="text/javascript" src="https://DamianSkrzypczak.github.io/order/js/search.js?1603586509"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/quickstart/" title="Quickstart" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="https://DamianSkrzypczak.github.io/order/quickstart/">
+          Quickstart
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/quickstart/01_introduction/" title="Introduction" class="dd-item ">
+        <a href="https://DamianSkrzypczak.github.io/order/quickstart/01_introduction/">
+        Introduction
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/quickstart/02_installation/" title="Installation" class="dd-item ">
+        <a href="https://DamianSkrzypczak.github.io/order/quickstart/02_installation/">
+        Installation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/quickstart/03_creating_orderfile/" title="Creating new Orderfile.yml" class="dd-item ">
+        <a href="https://DamianSkrzypczak.github.io/order/quickstart/03_creating_orderfile/">
+        Creating new Orderfile.yml
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/quickstart/04_usage/" title="Usage" class="dd-item active">
+        <a href="https://DamianSkrzypczak.github.io/order/quickstart/04_usage/">
+        Usage
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/tutorials/" title="Tutorials" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://DamianSkrzypczak.github.io/order/tutorials/">
+          Tutorials
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/tutorials/01_command-line-completion/" title="Adding command line completion" class="dd-item ">
+        <a href="https://DamianSkrzypczak.github.io/order/tutorials/01_command-line-completion/">
+        Adding command line completion
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/roadmap/" title="Roadmap" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://DamianSkrzypczak.github.io/order/roadmap/">
+          Roadmap
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <center>
+    
+    <a class="github-button" href="https://github.com/DamianSkrzypczak/order" data-icon="octicon-star" data-show-count="true">Star</a>
+
+    
+    <a class="github-button" href="https://github.com/DamianSkrzypczak/order/fork" data-icon="octicon-repo-forked" data-show-count="true">Fork</a>
+
+    
+    <a class="github-button" href="https://github.com/DamianSkrzypczak/order/subscription" data-icon="octicon-eye" data-show-count="true" aria-label="Watch DamianSkrzypczak/order on GitHub">Watch</a>
+
+    
+    <a class="github-button" href="https://github.com/DamianSkrzypczak/order/issues" data-icon="octicon-issue-opened" data-show-count="true" aria-label="Issue DamianSkrzypczak/order on GitHub">Issue</a>
+
+    
+    <a class="github-button" href="https://github.com/DamianSkrzypczak" aria-label="Follow @DamianSkrzypczak on GitHub">Follow @DamianSkrzypczak</a>
+
+</center>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/DamianSkrzypczak/order/tree/master/docs/source/content/quickstart/04_usage.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='https://DamianSkrzypczak.github.io/order/'>Home</a> > <a href='https://DamianSkrzypczak.github.io/order/quickstart/'>Quickstart</a> > Usage
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Usage
+            </h1>
+          
+
+        
+
+
+
+<div class="notices info" ><p>Currently Order doesn&rsquo;t support flags/parameters for subcommand.<br>
+However, this feature is planned in our <a href="https://DamianSkrzypczak.github.io/order/roadmap/#v020---gears-" title="ROADMAP">ROADMAP</a> will be added very soon.</p>
+</div>
+
+<h4 id="checking-version">Checking version</h4>
+<p>Running <code>order --version</code> will display:</p>
+<ul>
+<li>current version of Order tool</li>
+<li>Orderfile.yml version (if present in current directory or pointet with <code>--path</code> flag)</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># With Orderfile.yml present:</span>
+&gt; order --version
+INF Order version: 0.1.0
+INF ../Orderfile.yml version: 0.1.0
+
+<span style="color:#75715e"># Without Orderfile.yml present or pointed with --path:</span>
+&gt; order --version
+INF Order version: 0.1.0
+</code></pre></div><h4 id="getting-help">Getting help</h4>
+<p>Running <code>order -h</code> will display help message with all available flags</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; order -h
+Usage: order <span style="color:#f92672">[</span>options...<span style="color:#f92672">]</span> &lt;order-name&gt;
+
+Options:
+      --debug         debug mode
+  -l, --list          list orders
+      --no-color      <span style="color:#66d9ef">do</span> not color the output
+      --no-command    hide currently executed command
+      --no-level      hide logging level
+  -p, --path string   path to orderfile <span style="color:#f92672">(</span>default <span style="color:#e6db74">&#34;./Orderfile.yml&#34;</span><span style="color:#f92672">)</span>
+      --version       print version of orderfile <span style="color:#f92672">(</span>and <span style="color:#66d9ef">if</span> loaded, Orderfile.yml<span style="color:#f92672">)</span>
+</code></pre></div><h4 id="listing-available-orders">Listing available orders</h4>
+<p>Running <code>order -l</code> will list all orders that are available in context of loaded Orderfile.yml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Example for Orderfile.yml used in order project</span>
+&gt; order -l
+INF Available orders:
+add-autocompletion
+build                   build order binary into ./bin/ directory
+build-docs              build project documentation
+precommit               run all necessary precommit checks:
+                          - goimports <span style="color:#f92672">(</span>fix-in-place<span style="color:#f92672">)</span>
+                          - gofmt <span style="color:#f92672">(</span>fix-in-place<span style="color:#f92672">)</span>
+                          - golangci-lint <span style="color:#f92672">(</span>with .golangci.yml config<span style="color:#f92672">)</span>
+                          - go mod tidy &amp; verify
+                          - run unit tests
+rm-autocompletion
+serve-docs              serve project documentation locally
+setup-dev               setup development tools
+setup-doc               setup documentation tools:
+                          - hugo <span style="color:#f92672">(</span>into ./bin/ directory<span style="color:#f92672">)</span>
+                          - hugo-theme-learn <span style="color:#f92672">(</span>git submodule<span style="color:#f92672">)</span>
+test                    run go test with coverage report
+test-html               run go test with HTML coverage report
+</code></pre></div><h4 id="using-orderfile-from-different-location">Using Orderfile from different location</h4>
+<p>By default, order expects <code>Orderfile.yml</code> to be present in current working directory,
+however we can point to other file by running</p>
+<pre><code>order -p=&lt;path&gt;
+</code></pre>
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="https://DamianSkrzypczak.github.io/order/quickstart/03_creating_orderfile/" title="Creating new Orderfile.yml"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="https://DamianSkrzypczak.github.io/order/tutorials/" title="Tutorials" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="https://DamianSkrzypczak.github.io/order/js/clipboard.min.js?1603586509"></script>
+    <script src="https://DamianSkrzypczak.github.io/order/js/perfect-scrollbar.min.js?1603586509"></script>
+    <script src="https://DamianSkrzypczak.github.io/order/js/perfect-scrollbar.jquery.min.js?1603586509"></script>
+    <script src="https://DamianSkrzypczak.github.io/order/js/jquery.sticky.js?1603586509"></script>
+    <script src="https://DamianSkrzypczak.github.io/order/js/featherlight.min.js?1603586509"></script>
+    <script src="https://DamianSkrzypczak.github.io/order/js/highlight.pack.js?1603586509"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://DamianSkrzypczak.github.io/order/js/modernizr.custom-3.6.0.js?1603586509"></script>
+    <script src="https://DamianSkrzypczak.github.io/order/js/learn.js?1603586509"></script>
+    <script src="https://DamianSkrzypczak.github.io/order/js/hugo-learn.js?1603586509"></script>
+
+    <link href="https://DamianSkrzypczak.github.io/order/mermaid/mermaid.css?1603586509" rel="stylesheet" />
+    <script src="https://DamianSkrzypczak.github.io/order/mermaid/mermaid.js?1603586509"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+
