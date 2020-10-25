@@ -28,7 +28,7 @@ It's main goal is to give to the developer:
     - ability to divide tasks into file-based, aliased namespaces
     - support for parent task checksum validation
     - optional separation between definition and implementation
-    - compliation of whole inheritance tree to single file
+    - compilation of whole inheritance tree to single file
 
 See [ROADMAP](https://damianskrzypczak.github.io/order/roadmap/) for more details on feature development progress.
 
