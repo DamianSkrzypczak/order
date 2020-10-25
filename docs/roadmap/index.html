@@ -8,7 +8,7 @@
 <meta name="author" content="Damian Skrzypczak">
 
     <link rel="shortcut icon" href="https://DamianSkrzypczak.github.io/order/images/Ordy.png" type="image/x-icon" />
-    <title>Categories :: Order</title>
+    <title>Roadmap :: Order</title>
 
     
     <link href="https://DamianSkrzypczak.github.io/order/css/nucleus.css?1603583473" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="https://DamianSkrzypczak.github.io/order/categories/">
+  <body class="" data-url="https://DamianSkrzypczak.github.io/order/roadmap/">
     <nav id="sidebar" class="">
 
 
@@ -254,8 +254,8 @@
   
     
     <li data-nav-id="/roadmap/" title="Roadmap" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="https://DamianSkrzypczak.github.io/order/roadmap/">
@@ -310,6 +310,17 @@
               <div>
                 <div id="top-bar">
                 
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/DamianSkrzypczak/order/tree/master/docs/source/content/roadmap/_index.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
                 
                 <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                     <span id="sidebar-toggle-span">
@@ -330,7 +341,7 @@
             
           
           
-            <a href='https://DamianSkrzypczak.github.io/order/'>Home</a> > Categories
+            <a href='https://DamianSkrzypczak.github.io/order/'>Home</a> > Roadmap
           
         
           
@@ -341,7 +352,21 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#v010---groundwork-">v0.1.0 - Groundwork ⛏️</a></li>
+        <li><a href="#v020---gears-">v0.2.0 - Gears ⚙️</a></li>
+        <li><a href="#v030---lineage-">v0.3.0 - Lineage 👪</a></li>
+        <li><a href="#v040---distance-">v0.4.0 - Distance 📏</a></li>
+        <li><a href="#v050---singularity-">v0.5.0 - Singularity 🔮</a></li>
+        <li><a href="#v060---channel-">v0.6.0 - Channel 🚿</a></li>
+        <li><a href="#v070---vision-">v0.7.0 - Vision 🔭</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -357,9 +382,7 @@
           
             <h1>
               
-                taxonomy ::
-              
-              Categories
+              Roadmap
             </h1>
           
 
@@ -367,11 +390,134 @@
 
 
 
-
-
+	<h3 id="v010---groundwork-">v0.1.0 - Groundwork ⛏️</h3>
+<hr>
+<p>🎯 <strong>objective</strong>: fundamental features</p>
 <ul>
-	
+<li>basic file structure with orders only</li>
+<li>execution with only list of commands</li>
+<li>CLI to list and run orders</li>
+<li>project must include:
+<ul>
+<li>documentation</li>
+<li>unit tests</li>
+<li>code quality &amp; development tools/configs</li>
 </ul>
+</li>
+<li>use order as its own order runner / build system</li>
+</ul>
+<h3 id="v020---gears-">v0.2.0 - Gears ⚙️</h3>
+<hr>
+<p>🎯 <strong>objective</strong>: more complex commands support, parametrization, more real CLI-like experience for orders execution</p>
+<ul>
+<li>add basic Orderfile.yml initialization with &ndash;init flag</li>
+<li>referencing one order in another</li>
+<li>string templating:
+<ul>
+<li>order parameters/flags:
+<ul>
+<li>secrets</li>
+<li>bool</li>
+<li>string</li>
+</ul>
+</li>
+<li>default values</li>
+<li>&ldquo;passthrough&rdquo; option:
+<ul>
+<li>will pass all flags/positional agrs to marked place in order cmd string</li>
+<li>passtrhough allows for special &ldquo;help-cmd&rdquo; which will be helpful to see command&rsquo;s original help</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>environmental variables injection</li>
+</ul>
+<h3 id="v030---lineage-">v0.3.0 - Lineage 👪</h3>
+<hr>
+<p>🎯 <strong>objective</strong>: inheritance as project signature feature which allows for better order management and separation between definition and implementation`</p>
+<ul>
+<li>inheritance (local):
+<ul>
+<li>vertical (parent - child):
+<ul>
+<li>one parent allowed</li>
+<li>modes: ignore / extend / override</li>
+</ul>
+</li>
+<li>horizontal (siblings):
+<ul>
+<li>with order namespacing/aliasing</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="v040---distance-">v0.4.0 - Distance 📏</h3>
+<hr>
+<p>🎯 <strong>objective</strong>: definition centralization for multirepo-based projects</p>
+<ul>
+<li>network-based inheritance:
+<ul>
+<li>only vertical inheritance</li>
+<li>authentication support</li>
+<li>global &amp; order-based checksum system</li>
+</ul>
+</li>
+</ul>
+<h3 id="v050---singularity-">v0.5.0 - Singularity 🔮</h3>
+<hr>
+<p>🎯 <strong>objective</strong>: better management over tree-like structure</p>
+<ul>
+<li>final form file compilation (to new file):
+<ul>
+<li>by vertical squashing with all modes applied:
+<ul>
+<li>ignore: no order present</li>
+<li>extend: script squash for both orders</li>
+<li>override: child only</li>
+</ul>
+</li>
+<li>optional <code>--keep-parent</code> flag which will allow for <strong>&ldquo;final file&rdquo;</strong> to keep parent reference
+<ul>
+<li>override mode for all orders as a way to obey the principle o <a href="https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle">open-closed</a> principle</li>
+</ul>
+</li>
+<li><strong>&ldquo;final file&rdquo;</strong> is just normal Orderfile.yml, no special behaviour / syntax</li>
+</ul>
+</li>
+</ul>
+<h3 id="v060---channel-">v0.6.0 - Channel 🚿</h3>
+<hr>
+<p>🎯 <strong>objective</strong>: pipeline as clear, multi-order scenario definition</p>
+<ul>
+<li>order pipelining:
+<ul>
+<li>parameter-based inter-order communication</li>
+</ul>
+</li>
+<li>artifacts</li>
+</ul>
+<h3 id="v070---vision-">v0.7.0 - Vision 🔭</h3>
+<hr>
+<p>🎯 <strong>objective</strong>: more user friendly order/pipelines navigation</p>
+<ul>
+<li>web interface:
+<ul>
+<li>local server</li>
+<li>order &amp; pipelines:
+<ul>
+<li>visualization</li>
+<li>edition</li>
+<li>execution</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>introduction of e2e tests for web interface</li>
+</ul>
+
+
+
 
 
 <footer class=" footline" >
@@ -524,6 +670,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -543,6 +690,8 @@
 
 	 
 	 
+		
+			<a class="nav nav-prev" href="https://DamianSkrzypczak.github.io/order/tutorials/command-line-completion/" title="Adding command line completion"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="https://DamianSkrzypczak.github.io/order/quickstart/" title="Quickstart" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>

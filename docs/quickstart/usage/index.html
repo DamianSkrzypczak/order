@@ -8,7 +8,7 @@
 <meta name="author" content="Damian Skrzypczak">
 
     <link rel="shortcut icon" href="https://DamianSkrzypczak.github.io/order/images/Ordy.png" type="image/x-icon" />
-    <title>Categories :: Order</title>
+    <title>Usage :: Order</title>
 
     
     <link href="https://DamianSkrzypczak.github.io/order/css/nucleus.css?1603583473" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="https://DamianSkrzypczak.github.io/order/categories/">
+  <body class="" data-url="https://DamianSkrzypczak.github.io/order/quickstart/usage/">
     <nav id="sidebar" class="">
 
 
@@ -81,7 +81,7 @@
   
     
     <li data-nav-id="/quickstart/" title="Quickstart" class="dd-item 
-        
+        parent
         
         
         ">
@@ -170,7 +170,7 @@
  
   
     
-      <li data-nav-id="/quickstart/usage/" title="Usage" class="dd-item ">
+      <li data-nav-id="/quickstart/usage/" title="Usage" class="dd-item active">
         <a href="https://DamianSkrzypczak.github.io/order/quickstart/usage/">
         Usage
         
@@ -310,6 +310,17 @@
               <div>
                 <div id="top-bar">
                 
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/DamianSkrzypczak/order/tree/master/docs/source/content/quickstart/usage.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
                 
                 <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                     <span id="sidebar-toggle-span">
@@ -330,7 +341,13 @@
             
           
           
-            <a href='https://DamianSkrzypczak.github.io/order/'>Home</a> > Categories
+            
+            
+          
+          
+            <a href='https://DamianSkrzypczak.github.io/order/'>Home</a> > <a href='https://DamianSkrzypczak.github.io/order/quickstart/'>Quickstart</a> > Usage
+          
+        
           
         
           
@@ -341,7 +358,15 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -357,9 +382,7 @@
           
             <h1>
               
-                taxonomy ::
-              
-              Categories
+              Usage
             </h1>
           
 
@@ -367,14 +390,66 @@
 
 
 
+<div class="notices info" ><p>Currently Order doesn&rsquo;t support any form of subcommand flags/parameters.</p>
+<p>However, this feature is present in our <a href="https://DamianSkrzypczak.github.io/order/roadmap/#v020---gears-" title="ROADMAP">ROADMAP</a> should be available very soon.</p>
+</div>
 
-
+<h4 id="checking-version">Checking version</h4>
+<p>Running <code>order --version</code> will display:</p>
 <ul>
-	
+<li>current version of Order tool</li>
+<li>Orderfile.yml version (if present in current directory or pointet with <code>--path</code> flag)</li>
 </ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># With Orderfile.yml present:</span>
+&gt; order --version
+INF Order version: 0.1.0
+INF ../Orderfile.yml version: 0.1.0
 
+<span style="color:#75715e"># Without Orderfile.yml present or pointed with --path:</span>
+&gt; order --version
+INF Order version: 0.1.0
+</code></pre></div><h4 id="getting-help">Getting help</h4>
+<p>Running <code>order -h</code> will display help message with all available flags</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; order -h
+Usage: order <span style="color:#f92672">[</span>options...<span style="color:#f92672">]</span> &lt;order-name&gt;
 
-<footer class=" footline" >
+Options:
+      --debug         debug mode
+  -l, --list          list orders
+      --no-color      <span style="color:#66d9ef">do</span> not color the output
+      --no-command    hide currently executed command
+      --no-level      hide logging level
+  -p, --path string   path to orderfile <span style="color:#f92672">(</span>default <span style="color:#e6db74">&#34;./Orderfile.yml&#34;</span><span style="color:#f92672">)</span>
+      --version       print version of orderfile <span style="color:#f92672">(</span>and <span style="color:#66d9ef">if</span> loaded, Orderfile.yml<span style="color:#f92672">)</span>
+</code></pre></div><h4 id="listing-available-orders">Listing available orders</h4>
+<p>Running <code>order -l</code> will list all orders that are available in context of loaded Orderfile.yml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Example for Orderfile.yml used in order project</span>
+&gt; order -l
+INF Available orders:
+add-autocompletion
+build                   build order binary into ./bin/ directory
+build-docs              build project documentation
+precommit               run all necessary precommit checks:
+                          - goimports <span style="color:#f92672">(</span>fix-in-place<span style="color:#f92672">)</span>
+                          - gofmt <span style="color:#f92672">(</span>fix-in-place<span style="color:#f92672">)</span>
+                          - golangci-lint <span style="color:#f92672">(</span>with .golangci.yml config<span style="color:#f92672">)</span>
+                          - go mod tidy &amp; verify
+                          - run unit tests
+rm-autocompletion
+serve-docs              serve project documentation locally
+setup-dev               setup development tools
+setup-doc               setup documentation tools:
+                          - hugo <span style="color:#f92672">(</span>into ./bin/ directory<span style="color:#f92672">)</span>
+                          - hugo-theme-learn <span style="color:#f92672">(</span>git submodule<span style="color:#f92672">)</span>
+test                    run go test with coverage report
+test-html               run go test with HTML coverage report
+</code></pre></div><h4 id="using-orderfile-from-different-location">Using Orderfile from different location</h4>
+<p>By default, order expects <code>Orderfile.yml</code> to be present in current working directory,
+however we can point to other file by running</p>
+<pre><code>order -p=&lt;path&gt;
+</code></pre>
+
+<footer class="footline">
 	
 </footer>
 
@@ -409,8 +484,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -424,6 +497,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -473,6 +549,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -491,6 +568,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -544,8 +624,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="https://DamianSkrzypczak.github.io/order/quickstart/creating_orderfile/" title="Creating new Orderfile.yml"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="https://DamianSkrzypczak.github.io/order/quickstart/" title="Quickstart" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="https://DamianSkrzypczak.github.io/order/tutorials/" title="Tutorials" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -575,3 +657,4 @@
 
   </body>
 </html>
+

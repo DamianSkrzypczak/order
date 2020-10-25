@@ -8,7 +8,7 @@
 <meta name="author" content="Damian Skrzypczak">
 
     <link rel="shortcut icon" href="https://DamianSkrzypczak.github.io/order/images/Ordy.png" type="image/x-icon" />
-    <title>Categories :: Order</title>
+    <title>Creating new Orderfile.yml :: Order</title>
 
     
     <link href="https://DamianSkrzypczak.github.io/order/css/nucleus.css?1603583473" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="https://DamianSkrzypczak.github.io/order/categories/">
+  <body class="" data-url="https://DamianSkrzypczak.github.io/order/quickstart/creating_orderfile/">
     <nav id="sidebar" class="">
 
 
@@ -81,7 +81,7 @@
   
     
     <li data-nav-id="/quickstart/" title="Quickstart" class="dd-item 
-        
+        parent
         
         
         ">
@@ -149,7 +149,7 @@
  
   
     
-      <li data-nav-id="/quickstart/creating_orderfile/" title="Creating new Orderfile.yml" class="dd-item ">
+      <li data-nav-id="/quickstart/creating_orderfile/" title="Creating new Orderfile.yml" class="dd-item active">
         <a href="https://DamianSkrzypczak.github.io/order/quickstart/creating_orderfile/">
         Creating new Orderfile.yml
         
@@ -310,6 +310,17 @@
               <div>
                 <div id="top-bar">
                 
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/DamianSkrzypczak/order/tree/master/docs/source/content/quickstart/creating_orderfile.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
                 
                 <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                     <span id="sidebar-toggle-span">
@@ -330,7 +341,13 @@
             
           
           
-            <a href='https://DamianSkrzypczak.github.io/order/'>Home</a> > Categories
+            
+            
+          
+          
+            <a href='https://DamianSkrzypczak.github.io/order/'>Home</a> > <a href='https://DamianSkrzypczak.github.io/order/quickstart/'>Quickstart</a> > Creating new Orderfile.yml
+          
+        
           
         
           
@@ -341,7 +358,15 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -357,9 +382,7 @@
           
             <h1>
               
-                taxonomy ::
-              
-              Categories
+              Creating new Orderfile.yml
             </h1>
           
 
@@ -367,14 +390,25 @@
 
 
 
+<div class="notices info" ><p>Currently order doesn&rsquo;t support basic orderfile initialization
+so new Orferfile.yml must be created by hand.</p>
+<p>However, this feature is present in our <a href="https://DamianSkrzypczak.github.io/order/roadmap/#v020---gears-" title="ROADMAP">ROADMAP</a> should be available very soon.</p>
+</div>
+
+<h4 id="creating-new-orderfileyml">Creating new Orderfile.yml:</h4>
+<p>Create new file named <code>Orderfile.yml</code> containing structure like below</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;0.1.0&#34;</span>
+
+<span style="color:#f92672">orders</span>:
+  <span style="color:#f92672">hello-world</span>:
+    <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;Say Hello World!&#34;</span>
+    <span style="color:#f92672">script</span>:
+      - <span style="color:#ae81ff">echo &#34;Hello World!&#34;</span>
+</code></pre></div><p>This Orderfile contains single order named <strong>&ldquo;hello-world&rdquo;</strong>,
+which can be invoked by running <code>order hello-world</code>.</p>
 
 
-<ul>
-	
-</ul>
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -409,8 +443,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -424,6 +456,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -457,6 +492,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -472,6 +508,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -544,8 +583,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="https://DamianSkrzypczak.github.io/order/quickstart/installation/" title="Installation"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="https://DamianSkrzypczak.github.io/order/quickstart/" title="Quickstart" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="https://DamianSkrzypczak.github.io/order/quickstart/usage/" title="Usage" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -575,3 +616,4 @@
 
   </body>
 </html>
+

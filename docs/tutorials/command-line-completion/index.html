@@ -8,7 +8,7 @@
 <meta name="author" content="Damian Skrzypczak">
 
     <link rel="shortcut icon" href="https://DamianSkrzypczak.github.io/order/images/Ordy.png" type="image/x-icon" />
-    <title>Categories :: Order</title>
+    <title>Adding command line completion :: Order</title>
 
     
     <link href="https://DamianSkrzypczak.github.io/order/css/nucleus.css?1603583473" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="https://DamianSkrzypczak.github.io/order/categories/">
+  <body class="" data-url="https://DamianSkrzypczak.github.io/order/tutorials/command-line-completion/">
     <nav id="sidebar" class="">
 
 
@@ -199,7 +199,7 @@
   
     
     <li data-nav-id="/tutorials/" title="Tutorials" class="dd-item 
-        
+        parent
         
         
         ">
@@ -225,7 +225,7 @@
  
   
     
-      <li data-nav-id="/tutorials/command-line-completion/" title="Adding command line completion" class="dd-item ">
+      <li data-nav-id="/tutorials/command-line-completion/" title="Adding command line completion" class="dd-item active">
         <a href="https://DamianSkrzypczak.github.io/order/tutorials/command-line-completion/">
         Adding command line completion
         
@@ -310,6 +310,17 @@
               <div>
                 <div id="top-bar">
                 
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/DamianSkrzypczak/order/tree/master/docs/source/content/tutorials/command-line-completion.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
                 
                 <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                     <span id="sidebar-toggle-span">
@@ -330,7 +341,13 @@
             
           
           
-            <a href='https://DamianSkrzypczak.github.io/order/'>Home</a> > Categories
+            
+            
+          
+          
+            <a href='https://DamianSkrzypczak.github.io/order/'>Home</a> > <a href='https://DamianSkrzypczak.github.io/order/tutorials/'>Tutorials</a> > Adding command line completion
+          
+        
           
         
           
@@ -341,7 +358,16 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#supported-shells">Supported shells</a></li>
+        <li><a href="#adding-completion">Adding completion</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -357,24 +383,37 @@
           
             <h1>
               
-                taxonomy ::
-              
-              Categories
+              Adding command line completion
             </h1>
           
 
         
 
 
-
-
-
+<h3 id="supported-shells">Supported shells</h3>
+<p>Order offers supports command line autocompletion for selected shells:</p>
 <ul>
-	
+<li>bash</li>
 </ul>
+<h3 id="adding-completion">Adding completion</h3>
+<p>Order completion is done by using <strong>hidden flags</strong>.</p>
+<p>Each flag execute special order which defines all the necessary steps to ensure completion for chosen shell.</p>
+
+<div class="notices note" ><p>For transparency, pre-defined orders behaves in same fashion that user-defined orders would do, this means that for default CLI parameters, all commands will be printed to stdout during task execution.</p>
+</div>
+
+<h4 id="bash">BASH</h4>
+<p>To add bash completion for order commands run:</p>
+<pre><code>order --add-bash-completion
+</code></pre><p>When <code>--no-comamand</code> flag present, output should include all executed commands.</p>
+
+<div class="notices info" ><p>Remember to run <code>source ~/.bashrc</code> or create new terminal session
+to load autocompletion after sucessful registration</p>
+</div>
 
 
-<footer class=" footline" >
+
+<footer class="footline">
 	
 </footer>
 
@@ -492,6 +531,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -504,6 +544,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -523,6 +564,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -544,8 +588,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="https://DamianSkrzypczak.github.io/order/tutorials/" title="Tutorials"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="https://DamianSkrzypczak.github.io/order/quickstart/" title="Quickstart" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="https://DamianSkrzypczak.github.io/order/roadmap/" title="Roadmap" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -575,3 +621,4 @@
 
   </body>
 </html>
+

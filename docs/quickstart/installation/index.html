@@ -8,7 +8,7 @@
 <meta name="author" content="Damian Skrzypczak">
 
     <link rel="shortcut icon" href="https://DamianSkrzypczak.github.io/order/images/Ordy.png" type="image/x-icon" />
-    <title>Categories :: Order</title>
+    <title>Installation :: Order</title>
 
     
     <link href="https://DamianSkrzypczak.github.io/order/css/nucleus.css?1603583473" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="https://DamianSkrzypczak.github.io/order/categories/">
+  <body class="" data-url="https://DamianSkrzypczak.github.io/order/quickstart/installation/">
     <nav id="sidebar" class="">
 
 
@@ -81,7 +81,7 @@
   
     
     <li data-nav-id="/quickstart/" title="Quickstart" class="dd-item 
-        
+        parent
         
         
         ">
@@ -128,7 +128,7 @@
  
   
     
-      <li data-nav-id="/quickstart/installation/" title="Installation" class="dd-item ">
+      <li data-nav-id="/quickstart/installation/" title="Installation" class="dd-item active">
         <a href="https://DamianSkrzypczak.github.io/order/quickstart/installation/">
         Installation
         
@@ -310,6 +310,17 @@
               <div>
                 <div id="top-bar">
                 
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/DamianSkrzypczak/order/tree/master/docs/source/content/quickstart/installation.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
                 
                 <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                     <span id="sidebar-toggle-span">
@@ -330,7 +341,13 @@
             
           
           
-            <a href='https://DamianSkrzypczak.github.io/order/'>Home</a> > Categories
+            
+            
+          
+          
+            <a href='https://DamianSkrzypczak.github.io/order/'>Home</a> > <a href='https://DamianSkrzypczak.github.io/order/quickstart/'>Quickstart</a> > Installation
+          
+        
           
         
           
@@ -341,7 +358,15 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -357,9 +382,7 @@
           
             <h1>
               
-                taxonomy ::
-              
-              Categories
+              Installation
             </h1>
           
 
@@ -367,14 +390,29 @@
 
 
 
+<div class="notices info" ><p>Currently Order supports only installation via <code>go get</code>
+but binary releases and support for various package managers is comming soon.</p>
+</div>
 
+<h4 id="using-go-get-installed-go-required">Using <code>go get</code> (installed go required)</h4>
+<p>To install &ldquo;order&rdquo; tool run:</p>
+<pre><code>go get -u github.com/DamianSkrzypczak/order
+</code></pre><p>then check if everything works file with</p>
+<pre><code>order --help
+</code></pre><p>you should see usage similar to that:</p>
+<pre><code>Usage: order [options...] &lt;order-name&gt;
 
-<ul>
-	
-</ul>
+Options:
+      --debug         debug mode
+  -l, --list          list orders
+      --no-color      do not color the output
+      --no-command    hide currently executed command
+      --no-level      hide logging level
+  -p, --path string   path to orderfile (default &quot;./Orderfile.yml&quot;)
+      --version       print version of orderfile (and if loaded, Orderfile.yml)
+</code></pre>
 
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -409,8 +447,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -424,6 +460,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -441,6 +480,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -456,6 +496,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -544,8 +587,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="https://DamianSkrzypczak.github.io/order/quickstart/introduction/" title="Introduction"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="https://DamianSkrzypczak.github.io/order/quickstart/" title="Quickstart" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="https://DamianSkrzypczak.github.io/order/quickstart/creating_orderfile/" title="Creating new Orderfile.yml" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -575,3 +620,4 @@
 
   </body>
 </html>
+

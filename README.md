@@ -7,8 +7,7 @@
 [![license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/DamianSkrzypczak/order/blob/master/LICENSE)
 
 
-<!-- <img align="right" height="100px" src="https://raw.githubusercontent.com/DamianSkrzypczak/order/master/media/logo.png"> -->
-<img alt="logo" align="right" width="150px" src="/media/logo.png">
+<img align="right" height="150px" src="https://raw.githubusercontent.com/DamianSkrzypczak/order/master/media/Ordy.png">
 
 # Order
 ✔ A modern approach to running your tasks

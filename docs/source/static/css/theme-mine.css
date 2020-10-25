@@ -130,3 +130,8 @@ a:hover {
 #homelinks a:hover {
   color: var(--MENU-HOME-LINK-HOVERED-color);
 }
+
+figure.floatleft {
+    max-width: 30%;
+	float: left;
+}

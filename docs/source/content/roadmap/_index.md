@@ -2,6 +2,7 @@
 title = "Roadmap"
 weight = 3
 chapter = false
+disableNextPrev = true
 +++
 
 ### v0.1.0 - Groundwork ⛏️
@@ -19,6 +20,7 @@ chapter = false
 ### v0.2.0 - Gears ⚙️
 ----
 🎯 **objective**: more complex commands support, parametrization, more real CLI-like experience for orders execution
+- add basic Orderfile.yml initialization with --init flag
 - referencing one order in another
 - string templating:
     - order parameters/flags:
