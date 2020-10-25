@@ -38,7 +38,7 @@ Options:
       --no-command    hide currently executed command
       --no-level      hide logging level
   -p, --path string   path to orderfile (default "./Orderfile.yml")
-      --version       print version of orderfile (and if loaded, Orderfile.yml)
+      --version       print version of order (and if loaded, Orderfile.yml)
 ```
 
 #### Listing available orders
