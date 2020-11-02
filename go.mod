@@ -8,9 +8,8 @@ require (
 	github.com/rs/zerolog v1.20.0
 	github.com/spf13/pflag v1.0.5
 	github.com/stretchr/testify v1.6.1
-	golang.org/x/sys v0.0.0-20201020230747-6e5568b54d1a // indirect
 	golang.org/x/tools v0.0.0-20201023174141-c8cfbd0f21e6 // indirect
 	google.golang.org/api v0.33.0 // indirect
 	gopkg.in/yaml.v2 v2.3.0
-	mvdan.cc/sh/v3 v3.1.2
+	mvdan.cc/sh/v3 v3.2.0
 )
