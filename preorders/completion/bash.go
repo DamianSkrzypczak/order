@@ -31,7 +31,7 @@ var BashCompletionOrder = &orderfile.Order{
 		  '`,
 
 		// Create completion file
-		"echo ${script} > ~/.bash_completion.d/order.bash",
+		"echo -e \"${script}\" > ~/.bash_completion.d/order.bash",
 
 		// If .bashrc doesn't contain sourcing command, add it
 		`grep -qxF 'source ~/.bash_completion.d/order.bash' ~/.bashrc || echo "source ~/.bash_completion.d/order.bash" >> ~/.bashrc`,

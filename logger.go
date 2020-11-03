@@ -24,7 +24,6 @@ func newLogger(debug, noLogLevel, noColor bool) zerolog.Logger {
 
 	if debug {
 		zerolog.SetGlobalLevel(zerolog.DebugLevel)
-		log.Debug().Msg("Debug mode: on")
 	}
 
 	return log.Output(output)

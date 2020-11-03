@@ -59,12 +59,15 @@ func main() {
 	// core flags
 	debugModeOn := orderCmd.Bool("debug", false, "debug mode")
 	listOrders := orderCmd.BoolP("list", "l", false, "list orders")
+	showHelp := orderCmd.BoolP("help", "h", false, "display the manual of a command")
 	orderfilePath := orderCmd.StringP("path", "p", "./Orderfile.yml", "path to orderfile")
 	printVersion := orderCmd.Bool("version", false, "print version of orderfile (and if loaded, Orderfile.yml)")
 
 	// (hiden) completion adding flags
 	addBashCompletion := orderCmd.Bool("add-bash-completion", false, "add bash completion")
 	_ = orderCmd.MarkHidden("add-bash-completion")
+	addZSHCompletion := orderCmd.Bool("add-zsh-completion", false, "add ZSH completion")
+	_ = orderCmd.MarkHidden("add-zsh-completion")
 
 	orderCmd.Usage = func() {
 		log.Logger = newHelpLogger()
@@ -74,8 +77,12 @@ func main() {
 	err := orderCmd.Parse(os.Args[1:])
 
 	log.Logger = newLogger(*debugModeOn, *noLogLevel, *noColor)
+	if *debugModeOn{
+		log.Debug().Msg("Debug mode: on")
+	}
 
-	if err == pflag.ErrHelp {
+	if *showHelp {
+		orderCmd.Usage()
 		return
 	}
 
@@ -113,6 +120,9 @@ func main() {
 	if *addBashCompletion {
 		orderName = `builtin order "AddBashCompletion"`
 		selectedOrder = completion.BashCompletionOrder
+	} else 	if *addZSHCompletion {
+		orderName = `builtin order "addZSHCompletion"`
+		selectedOrder = completion.ZSHCompletionOrder
 	} else {
 		orderName = orderCmd.Arg(0)
 		if orderName == "" {

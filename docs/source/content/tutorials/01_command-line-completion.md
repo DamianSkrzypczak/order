@@ -23,7 +23,7 @@ To add bash completion for order commands run:
 ```
 order --add-bash-completion
 ```
-When `--no-comamand` flag present, output should include all executed commands.
+Output should include all executed commands (except time when `--no-comamand` flag is present)
 
 
 {{% notice info %}}
@@ -31,4 +31,16 @@ Remember to run `source ~/.bashrc` or create new terminal session
 to load autocompletion after sucessful registration
 {{% /notice %}}
 
+#### ZSH
+To add ZSH completion for order commands run:
+```
+order --add-zsh-completion
+```
+Output should include all executed commands (except time when `--no-comamand` flag is present)
+
+
+{{% notice info %}}
+Remember to run `source ~/.zshrc` or create new terminal session
+to load autocompletion after sucessful registration
+{{% /notice %}}
 
