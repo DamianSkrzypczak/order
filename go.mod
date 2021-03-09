@@ -11,5 +11,5 @@ require (
 	golang.org/x/tools v0.0.0-20201023174141-c8cfbd0f21e6 // indirect
 	google.golang.org/api v0.33.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0
-	mvdan.cc/sh/v3 v3.2.1
+	mvdan.cc/sh/v3 v3.2.4
 )
